@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediccion del sobrepeso</title>
+    <meta content="Prediccion del sobrepeso" name="keywords">
+    <meta content="Prediccion del sobrepeso" name="description">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"/>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+     <!-- Navbar -->
+    <div class="container-fluid p-0 nav-bar" id="nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4 menu">
+                    <a href="#inicio" class="nav-item nav-link active">Home</a>
+                    <a href="#diseño" class="nav-item nav-link">Diseño</a>
+                    <a href="#construccion" class="nav-item nav-link">Construcción</a>
+                    <a href="#resultado" class="nav-item nav-link">Resultado</a>
+                    <a href="#resultado-overfitting" class="nav-item nav-link">Resultado con Overfitting</a>
+                    <a href="#grafico-prediccion" class="nav-item nav-link">Gráfico del resultado</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Index -->
+    <div class="container-fluid p-0 mb-5" id="inicio">
+        <div id="blog-carousel" class="carousel slide overlay-bottom" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel active"  style="height: 100%;">
+                    <img class="w-100" src="/image/fondo_deep_learning.avif" alt="Fondo">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-primary font-weight-medium m-0">Manejo del Underfitting u Overfitting en</h2>
+                        <h1 class="display-1 text-white m-0">modelo de Deep Learning</h1>
+                        <h2 class="text-white m-0">para la predicción del sobrepeso de personas</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="section-title">
+                    <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Problemática</h4>
+                    <h1 class="display-4">Sobrepeso en persona</h1>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-16 my-5 my-lg-0">
+                        <p>
+                            En la actualidad ha aumentado el número de personas con un peso alto, de mantenerse a este ritmo en unos 5 años, se aproximaría a un diagnóstico del 40% o más de la población del mundo que tendrán sobrepeso, y más de la quinta parte será obesa.
+                            Por estudios realizados por la Organización Mundial de la Salud (OMS), se observa desde el año 1980 que se ha duplicado el sobrepeso a nivel mundial. Desde el año 2014, se ha visto un incremento del más de 1900 millones de personas mayores de 18 años con sobrepeso, lo que conlleva un dominante en adultos mayores de 18 años de un 39% de sobrepeso. Por otra parte, dentro de la población infantil, existen más de 41 millones de niños y niñas menores de 5 años que sufren de sobrepeso a nivel mundial. Con los datos antes expuestos se observa que ha aumentado alrededor de un valor de 11 millones de personas con sobrepeso en los últimos de 15 años.
+                            Se ha convertido en una problemática de salud pública, el aumento excesivo de grasa corporal de las personas en los últimos años, porque es una condición donde se obtiene efectos negativos no trasmisibles teniendo una mortalidad prematura y tener un alto costo económico de la salud. Con el aumento de peso existe riesgo de diversas enfermedades crónicas tales como: enfermedades cardiacas, diabetes, hipertensión o puede causar accidentes cerebrovasculares y muchas causas negativas al cuerpo. El sobrepeso se podría relacionar con problemas metabólicos, como el aumento de colesterol, retención a la insulina y triglicéridos. Además de afectar la calidad de vida, movilidad y la autoestima de cada persona. Se puede medir por lo general con un índice de masa corporal (IMC), las personas que obtienen un IMC que sea de igual o superior a 25 (en el cual se obtiene con el peso kg dividiendo con la altura m^2) están sufriendo de sobrepeso.
+                        </p>
+                    </div>
+                    <div class="col-lg-16 my-0 my-lg-3">
+                        <p>
+                            Es importante reconocer las consecuencias del sobrepeso en la salud pública donde tiene un impacto significativo en la calidad de vida de las personas y en los sistemas de atención médica. Mejorar la capacidad de predecir el sobrepeso puede ayudar a identificar y abordar estos problemas de manera más efectiva, promoviendo así la salud y el bienestar de la población. 
+                            La predicción precisa del sobrepeso puede facilitar la identificación temprana de personas en riesgo, lo que permite implementar estrategias de prevención e intervención antes de que la condición empeore. Cuanto antes se detecte, mayores serán las posibilidades de éxito en la prevención y el control. 
+                            Esto puede permitir una atención médica más personalizada y adaptada a las necesidades del individuo. Al identificar los factores de riesgo específicos y las características que contribuyen al sobrepeso, se pueden desarrollar planes de tratamiento y recomendaciones personalizadas. Esto ayuda a optimizar los recursos médicos y a mejorar los resultados de salud para cada persona.        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="section-title">
+                    <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Medio para la solución</h4>
+                    <h1 class="display-4">Modelo Deep Learning</h1>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-16 my-5 my-lg-0">
+                        <p>
+                            En la actualidad ha aumentado el número de personas con un peso alto, de mantenerse a este ritmo en unos 5 años, se aproximaría a un diagnóstico del 40% o más de la población del mundo que tendrán sobrepeso, y más de la quinta parte será obesa.
+                            Por estudios realizados por la Organización Mundial de la Salud (OMS), se observa desde el año 1980 que se ha duplicado el sobrepeso a nivel mundial. Desde el año 2014, se ha visto un incremento del más de 1900 millones de personas mayores de 18 años con sobrepeso, lo que conlleva un dominante en adultos mayores de 18 años de un 39% de sobrepeso. Por otra parte, dentro de la población infantil, existen más de 41 millones de niños y niñas menores de 5 años que sufren de sobrepeso a nivel mundial. Con los datos antes expuestos se observa que ha aumentado alrededor de un valor de 11 millones de personas con sobrepeso en los últimos de 15 años.
+                            Se ha convertido en una problemática de salud pública, el aumento excesivo de grasa corporal de las personas en los últimos años, porque es una condición donde se obtiene efectos negativos no trasmisibles teniendo una mortalidad prematura y tener un alto costo económico de la salud. Con el aumento de peso existe riesgo de diversas enfermedades crónicas tales como: enfermedades cardiacas, diabetes, hipertensión o puede causar accidentes cerebrovasculares y muchas causas negativas al cuerpo. El sobrepeso se podría relacionar con problemas metabólicos, como el aumento de colesterol, retención a la insulina y triglicéridos. Además de afectar la calidad de vida, movilidad y la autoestima de cada persona. Se puede medir por lo general con un índice de masa corporal (IMC), las personas que obtienen un IMC que sea de igual o superior a 25 (en el cual se obtiene con el peso kg dividiendo con la altura m^2) están sufriendo de sobrepeso.
+                        </p>
+                    </div>
+                    <div class="col-lg-16 my-0 my-lg-3">
+                        <p>
+                            Es importante reconocer las consecuencias del sobrepeso en la salud pública donde tiene un impacto significativo en la calidad de vida de las personas y en los sistemas de atención médica. Mejorar la capacidad de predecir el sobrepeso puede ayudar a identificar y abordar estos problemas de manera más efectiva, promoviendo así la salud y el bienestar de la población. 
+                            La predicción precisa del sobrepeso puede facilitar la identificación temprana de personas en riesgo, lo que permite implementar estrategias de prevención e intervención antes de que la condición empeore. Cuanto antes se detecte, mayores serán las posibilidades de éxito en la prevención y el control. 
+                            Esto puede permitir una atención médica más personalizada y adaptada a las necesidades del individuo. Al identificar los factores de riesgo específicos y las características que contribuyen al sobrepeso, se pueden desarrollar planes de tratamiento y recomendaciones personalizadas. Esto ayuda a optimizar los recursos médicos y a mejorar los resultados de salud para cada persona.        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="articule-body">
+            <div class="container-fluid py-5" id="diseño"> 
+                <div class="container">
+                    <div class="section-title">
+                        <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Desarrollo del prototipo</h4>
+                        <h1 class="display-4">Diseño</h1>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-lg-16 my-5 my-lg-0">
+                            <img src="/image/diseño.png" alt="diseño">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid py-5" id="construccion">
+                <div class="container">
+                    <div class="section-title">
+                        <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Construcción</h4>
+                        <h1 class="display-4">Elección y Análisis del dataset</h1>
+                    </div>
+                    <div class="Analisis_datos">
+                        <div class="Elaboracion_datos">
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <p>
+                                        Se utilizará un dataset de un repositorio de la plataforma de Kaggle <a href="https://www.kaggle.com/competitions/sobrepeso/data">link de la página</a>
+                                        Con esta dataset que se utilizará para entrenar la Red Neuronal se visualiza variables como:<br> 
+                                        <img src="/image/Variables_dataset.png" alt="Variables_dataset" class="image">    
+                                    </p>
+                                    <img src="/image/Tabla_dataset.png" alt="Tabla_dataset" class="image" style="width: 75%; margin-left: 10%;"><br><br><br>
+                                    <p>
+                                        Con columnas numéricas de 8 variables mostrando por pantalla.
+                                        <img src="/image/variables_numericas.png" alt="variables_numericas" class="image"><br><br><br>
+                                        Y con columnas no numéricas de 9 variables mostrando por pantalla.
+                                        <img src="/image/variables_no_numericas.png" alt="variables_no_numericas" class="image"><br><br>
+                                    </p>
+                                    <p>
+                                        Se comienza con la transformación de las variables no numéricas.<br><br><br>
+            
+                                        Se pone de ejemplo la variable Gender (Género)<br>
+                                        La cantidad total de los resultados recopilados de esta variable<br>
+                                        <img src="/image/Gender.png" alt="gender" class="image" style="width: 20%; margin-left: 40%"><br><br><br>
+                                        Usando el mapeo de diccionario se transformaron en numéricas. Siendo 1 = Female y 2 = Male
+                                        <img src="/image/Transformacion_Gender.png" alt="Transformacion_Gender" class="image"><br><br><br>
+                                    </p>
+                                    <p>
+                                        Una vez realizo la transformación con todas la variables no numéricas, se vuelve a consultar los tipos de variables que tiene el dataset.
+                                        <img src="/image/Tipos_variables_transformadas.png" alt="Tipos_variables_transformadas" class="image" style="width: 30%; margin-left: 35%"><br> 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Estadística_descriptiva">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Estadística descriptiva</h4>
+                                <img src="/image/Estadística_descriptiva.png" alt="Estadística_descriptiva" class="image"  style="width: 100%; margin-left: -1%;"><br><br>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="Histograma">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Histograma</h4>
+                                <p>
+                                    Se va a representar en forma de gráfico la distribución de frecuencias del conjunto de datos usado en este proyecto investigativo, para poder visualizar la frecuencia con la que ocurren los diferentes valores dentro del rango o intervalo.
+                                </p>
+                                <img src="/image/Histograma_codigo.png" alt="Histograma_codigo" class="image" style="width: auto; margin-left: 35%;"><br><br>
+                                <img src="/image/Histograma_grafico.png" alt="Histograma_grafico" class="image" style="margin-left: 25%;"><br><br>
+                                <p>
+                                    En la distribución de valores se lo leerá así:<br><br>
+                                        •	Distribución normal: Height, Weight, NCP, CAEC, CH2O, CALC<br>
+                                        •	Distribución asimétrica: Age, family_history_with_overweight, FAVC, FCVC, SMOKE, SCC, FAF, TUE, MTRANS<br>
+                                        •	Distribución uniforme: Gender, NObeyesdad<br>
+                                </p>
+                            </div>
+                        </div>
+                   </div>
+
+                   <div class="Correlación_características">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Correlación entre características</h4>
+                                <img src="/image/Correlación_entre_características_codigo.png" alt="Correlación_entre_características_codigo" class="image"><br><br>
+                                <p>
+                                    Se puede observar una representación clara sobre la relación del conjunto de datos. Donde se analiza las diferentes celdas de colores que muestra la magnitud y la dirección de la correlación entre las combinaciones de características. En esta representación cuando más cercano a uno sea el valor de correlación serán más intenso el color como las celdas de color rojizo interpretan una correlación positiva, por otra parte, mientras más cercano a cero sea el valor de correlación serán menos la intensidad de color tales como las celdas de color azulado están significando correlación negativa .
+                                </p>
+                                <img src="/image/Correlación_entre_características_grafco.png" alt="Correlación_entre_características_grafico" class="image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Procesar_datos">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Procesar de los datos</h4>
+                                <img src="/image/Procesar_datos.png" alt="Procesar_datos" class="image" style="width: auto; margin-left: 35%;"><br><br><br>
+                                <p>
+                                    En esta parte se va a quitar los datos vacíos o faltantes. Donde se observa el porcentaje de valores faltantes del conjunto de datos, se tiene porcentajes de 0.0 lo que significa que no hay datos vacíos.
+                                </p>
+                                <img src="/image/Procesar_datos_info.png" alt="Procesar_datos_info" class="image" style="width: auto; margin-left: 35%;">
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="Diagrama_caja">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Diagrama de caja</h4>
+                                <img src="/image/Diagrama_caja.png" alt="Diagrama_caja" class="image" style="width: auto; margin-left: 26%;"><br><br><br>
+                                <p>
+                                    Se puede visualizar como la distribución de valores esta graficado en esta sección, dando así una comparación de las diferentes variables para la detección de los valores atípicos ósea los valores que se encuentran fuera de los bigotes.
+                                </p>
+                                <img src="/image/Diagrama_caja_grafico.png" alt="Diagrama_caja_grafico" class="image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Percentil">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Percentil</h4>
+                                <p><br>
+                                    Se va a hallar percentil más cercano por encima de una cota superior del conjunto de datos anteriormente analizado para establecer ciertas métricas para los valores atípicos, realizando un proceso de cálculo y una búsqueda para obtener un percentil más cercano que se encuentra por encima de ‘Col’.
+                                </p>
+                                <img src="/image/Percentil.png" alt="Percentil" class="image" style="width: auto; margin-left: 25%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Diagrama_caja">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Diagrama de caja</h4>
+                                <img src="/image/Diagrama_caja_percentil.png" alt="Diagrama_caja_percentil" class="image" style="width: auto; margin-left: 26%;"><br><br><br>
+                                <p>
+                                    Se puede visualizar como la distribución de valores esta graficado en esta sección, donde ya no se encuentran presencia de valores atípicos.
+                                </p>
+                                <img src="/image/Diagrama_caja_grafico_percentil.png" alt="Diagrama_caja_grafico_percentil" class="image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Estandarización_datos">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Estandarización de los datos</h4>
+                                <p><br>
+                                    En este lugar se tiene como objetivo en eliminar las diferencias en la escala y el rango de las variables del conjunto de datos. Para la contribución de manera similar de las variables, y no se hallen valores dominantes. 
+                                </p>
+                                <img src="/image/Estandarización_datos.png" alt="Estandarización_datos" class="image">
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="Train_test">
+                        <div class="variables">
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Datos de entrada y salida</h4>
+                                    <p><br>
+                                        Se extraerá los datos entrada, variables independientes (x) y también los datos salida, variables dependientes (y).
+                                    </p>
+                                    <img src="/image/var_independiente.png" alt="var_independiente" class="image" style="width: auto; margin-left: 35%;"><br><br>  
+                                    <img src="/image/Var_dependiente.png" alt="var_dependiente" class="image" style="width: auto; margin-left: 35%;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Datos_entrenamiento">
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <img src="/image/datos_entr_1.png" alt="Datos_entrenamiento_1" class="image" style="width: auto;">
+                                    <p><br><br>
+                                        En esta sección el modelo aprenderá patrones y relaciones entre las variables dependientes e independientes. Con un finde minimizar los errores entre las predicciones y las etiquetas reales del dataset.
+                                    </p>
+                                    <img src="/image/datos_entr_2.png" alt="Datos_entrenamiento_2" class="image" style="width: auto;">
+                                    <p><br><br>
+                                        Se visualiza el nivel de sobrepeso de los datos de las personas ingresada en el dataset, Anteriormente se transformaron ‘NObeyesdad’ a valores numéricos.
+                                    </p>
+                                    <img src="/image/datos_entr_3.png" alt="Datos_entrenamiento_3" class="image" style="width: auto;">
+                                    <img src="/image/datos_entr_4.png" alt="Datos_entrenamiento_4" class="image" style="width: auto;">
+                                    <img src="/image/datos_entr_5.png" alt="Datos_entrenamiento_5" class="image" style="width: auto;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Esquema_escalado">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Esquema de escalado</h4>
+                                <p><br>
+                                    Se va a procesar los datos para obtener una misma escala del datasets usado, para obtener un impacto equitativo y no tener dominancia entre valores.
+                                </p>
+                                <img src="/image/Esquema_escalado.png" alt="Esquema_escalado" class="image" style="width: auto;"><br>
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Se separa los datos: 70% train y 30% test</h4>
+                                <img src="/image/Separar_datos.png" alt="Separar_datos" class="image" style="width: auto;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid py-5" id="resultado">
+                <div class="container">
+                    <div class="section-title">
+                        <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Resultado</h4>
+                        <h1 class="display-4">Elaboración del modelo</h1>
+                    </div> 
+                    <div class="Elaboracion_modelo">
+                        <div class="Construccion_modelo">
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Construir el modelo de redes neuronales</h4>
+                                    <img src="/image/modelo_redes_neurnales.png" alt="modelo_redes_neurnales" class="image">
+                                    <p><br><br>
+                                        Se está construyendo las redes neuronales secuenciales donde consta de varias capas densas, cantidades de neuronas específicas y una función de regularización. Y también se está indicando una capa de regularización Dropout con una tasa de 0.2, lo que indica que durante el entrenamiento se van a desactivar aleatoriamente el 20% de las neuronas de la capa anterior con esto se está evitando el Overfitting. 
+                                    </p><br><br>
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Compilar el modelo de redes neuronales antes de entrenarla</h4>
+                                    <img src="/image/Compilar_modelo.png" alt="Compilar_modelo" class="image">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="Entrenamiento">
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Entrenar el modelo</h4>
+                                    <img src="/image/Entranar_mdelo.png" alt="Entranar_modelo" class="image"><br>
+                                    <p><br><br>
+                                        Primero se usará una técnica donde se llega controlar el proceso de entrenamiento que se está realizando, para no llegar a tener sobreajuste y controlará el monitoreo de la pérdida y la precisión del modelo. Luego se va a entrenar el modelo definiendo la cantidad de veces que el entrenamiento dará la vuelta por el conjunto de datos que será 100 y el tamaño de lote que se va a utilizar será de 50.
+                                    </p>
+                                </div>
+                            </div>
+                                
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Evaluación del modelo en el conjunto de prueba</h4>
+                                    <img src="/image/evaluacion_modelo.png" alt="evaluacion_modelo" class="image" style="width: auto;">
+                                    <img src="/image/evaluacion_modelo_1.png" alt="evaluacion_modelo_1" class="image">
+                                    <p><br><br>
+                                        Se va a evaluar el rendimiento que tiene el modelo para llegar a obtener la pérdida y la precisión con esto se podrá tener valores de como se esta desempeñando el modelo con el dataset.
+                                    </p>
+
+                                    <div class="Prediccion">
+                                        <h4 class="display-6 text-center" style="margin-top: 5%;">Prediccion del modelo</h4>
+                                        <img src="/image/prediccion.png" alt="predecir" class="image" style="width: 30%; margin-left: 35%;">
+                                        <p><br><br>
+                                            En esta línea de código se realiza la predicción de los datos ya entrenados.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="umbral">
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Umbral decisión para obtener las predicciones binarias</h4>
+                                    <p><br>
+                                        Se convertirá los valores obtenidos de la predicción a valores binarios (0 o 1), se obtendrá ese valor cuando el umbral se mayor o menor de 0.5.
+                                    </p>
+                                    <img src="/image/predicion_binaria.png" alt="predicion_binaria"class="image"><br><br>
+                                    <img src="/image/Datos_sobrepeso.png" alt="Datos_sobrepeso" class="image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="graficos">
+                            <div class="row align-items-center">
+                                <div class="col-lg-16 my-5 my-lg-0">
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Gráfico de la evolución de la predicción</h4>
+                                    <p><br>
+                                        Se visualiza la pérdida y precisión del rendimiento que se tiene del modelo entrenado. La pérdida de entrenamiento (Training Loss) determina el error entre las predicciones del modelo y la etiqueta, mientras la pérdida de validación (Validation Loss) representa la evaluación del rendimiento del modelo. En el gráfico se muestra que la pérdida de entrenamiento (Training Loss) y la pérdida de validación (Validation Loss) están cerca que muestra que no hay Overfitting en este entrenamiento.
+                                    </p>
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Gráfico de la evolución de la pérdida</h4>
+                                    <img src="/image/grafico_perdida.png" alt="grafico_perdida" class="image">
+                                    <h4 class="display-6 text-center" style="margin-top: 5%;">Gráfico de la evolución de la precisión</h4>
+                                    <img src="/image/grafico_precision.png" alt="grafico_precision" class="image">
+                                    <p><br><br>
+                                        Se visualiza las métricas de precisión que se tuvo durante el entrenamiento.
+                                    </p>
+                                    <img src="/image/resultados_arrojados.png" alt="resultados_arrojados" class="image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid py-5" id="resultado-overfitting">
+                <div class="container">
+                    <div class="section-title">
+                        <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Resultado</h4>
+                        <h1 class="display-4">Sin el manejo del Overfitting</h1>
+                    </div>
+                    <div class="sin_overfitting">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Como se veria el modelo sin la tecnica de manejo del Overfitting (Sobreajuste)</h4>
+                                <p><br>
+                                    Se elimino la técnica que se estaba usando para el manejo del Overfitting.
+                                </p>
+                                <img src="/image/Modelo_overfitting.png" alt="Modelo_overfitting" class="image">
+                                <p><br>
+                                    Se comento las líneas de código donde se está regularizando el Overfitting. En la hora de entrenamiento en la parte de Época igual se coloco 100 y el tamaño de lote es 50.
+                                </p>
+                                <img src="/image/predicciones_bina_overfitting.png" alt="predicciones_bina_overfitting" class="image">
+                                <p><br>
+                                    En la predicción binaria los valores siguen iguales.
+                                </p>
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Gráfico de la evolución de la pérdida</h4>
+                                <img src="/image/grafico_erdida_overfitting.png" alt="grafico_perdida_overfitting" class="image">
+                                <p><br>
+                                    Se puede observar un cambio en este gráfico que, en el anterior, donde la pérdida de entrenamiento (Training Loss) y la pérdida de validación (Validation Loss) están distanciadas lo que demuestra que el modelo tiene un sobreajuste de los valores.
+                                </p>
+                                <h4 class="display-6 text-center" style="margin-top: 5%;">Gráfico de la evolución de la precisión</h4>
+                                <img src="/image/grafico_perdida_overfitting.png" alt="grafico_precision_overfitting" class="image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid py-5" id="grafico-prediccion">
+                <div class="container">
+                    <div class="section-title">
+                        <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Resultado</h4>
+                        <h1 class="display-4">Gráfico de la predicción</h1>
+                    </div>
+                    <div class="sin_overfitting">
+                        <div class="row align-items-center">
+                            <div class="col-lg-16 my-5 my-lg-0">
+                                <p>
+                                    Terminado con este entrenamiento se graficará el conteo de personas tiene sobrepeso en este entrenamiento realizado anteriormente que 0 (No tiene sobrepeso) se encontraba un 559 y 1 (Si tiene sobrepeso) es de 1552.
+                                </p>
+                                <img src="/image/distribucion_sobrepeso.png" alt="distribucion_sobrepeso" class="image">                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+    </div>
+    
+      <!-- Template Javascript -->
+      <script src="/js/main.js"></script>
+</body>
+</html>
